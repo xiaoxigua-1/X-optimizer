@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "X2twitter",
+  "description": "change X to Twitter",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "16": "icons/twitter-icon-16.png",
+    "32": "icons/twitter-icon-32.png",
+    "48": "icons/twitter-icon-48.png",
+    "128": "icons/twitter-icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["scripts/changeIcon.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/twitter-icon-24.svg"],
+      "matches": ["https://x.com/*", "https://twitter.com/*"]
+    }
+  ]
+}

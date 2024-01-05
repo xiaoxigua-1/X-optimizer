@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://x.com/*", "https://twitter.com/*"],
-      "js": ["scripts/changeIcon.js"]
+      "js": ["scripts/changeIcon.js", "scripts/replaceShareLink.js"]
     }
   ],
   "web_accessible_resources": [
@@ -23,5 +23,10 @@
       "resources": ["icons/twitter-icon-24.svg"],
       "matches": ["https://x.com/*", "https://twitter.com/*"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "scripts/initExtension.js",
+    "type": "module"
+  },
+  "permissions": ["storage"]
 }

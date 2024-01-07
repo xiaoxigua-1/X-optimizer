@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "X2twitter",
-  "description": "change X to Twitter",
+  "name": "X optimizer",
+  "description": "Fix X to be more usable",
   "version": "1.0",
   "action": {
     "default_popup": "popup/popup.html"

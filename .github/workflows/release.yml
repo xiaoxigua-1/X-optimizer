@@ -42,7 +42,7 @@ jobs:
         env:
           FIREFOX_ISSUER: ${{ secrets.FIREFOX_ISSUER }}
           FIREFOX_SECRET: ${{ secrets.FIREFOX_SECRET }}
-        run: npx web-ext sign --channel listed -s ./dist/firefox/ --upload-source-code  ../builds/Source.zip --artifacts-dir ./dist/firefox --api-key $FIREFOX_ISSUER --api-secret $FIREFOX_SECRET
+        run: npx web-ext sign --channel listed -s ./dist/firefox/ --upload-source-code  ../builds/Source.zip --artifacts-dir ./dist/firefox --api-key $FIREFOX_ISSUER --api-secret $FIREFOX_SECRET --amo-metadata ./firefox-metadata.json
       - name: Move artifact
         run: mv ./dist/firefox/x_optimizer-*.xpi ./builds/FirefoxExtension.xpi
       - name: Upload FirefoxExtension to release

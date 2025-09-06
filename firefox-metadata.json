@@ -1,6 +1,6 @@
 {
   "version": { "license": "MIT" },
-  "categories": { "firefox": ["social"] },
+  "categories": { "firefox": ["social-communication", "appearance", "other"] },
   "contributions_url": "https://ko-fi.com/xiguaxiao",
   "requires_payment": false,
   "homepage": {

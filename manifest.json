@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "manifest_version": 3,
+  "version": "1.1",
+  "name": "x optimizer",
+  "description": "Fix X to be more usable",
+  "icons": {
+    "16": "icons/twitter-icon-16.png",
+    "24": "icons/twitter-icon-24.svg",
+    "32": "icons/twitter-icon-32.png",
+    "48": "icons/twitter-icon-48.png",
+    "128": "icons/twitter-icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["scripts/changeIcon.ts", "scripts/replaceShareLink.ts"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/twitter-icon-24.svg"],
+      "matches": ["https://x.com/*", "https://twitter.com/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "xigua@xigua.tw",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["storage"],
+  "author": "xiaoxigua-1"
+}

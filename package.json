@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "x-optimizer",
+  "description": "Fix X to be more usable",
+  "version": "0.0.1",
+  "author": {
+    "name": "xiaoxigua-1",
+    "email": "xigua@xigua.tw",
+    "url": "https://www.xigua.tw"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-select": "^5.10.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "extension": "^2.0.0-rc.38",
+    "typescript": "5.3.3"
+  },
+  "scripts": {
+    "dev": "extension dev --browser firefox",
+    "start": "extension start",
+    "build": "extension build"
+  }
+}

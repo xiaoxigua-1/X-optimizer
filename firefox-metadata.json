@@ -1,14 +1,12 @@
 {
   "version": { "license": "MIT" },
-  "categories": { "firefox": ["social-communication", "appearance", "other"] },
+  "categories": { "firefox": ["social-communication", "appearance"] },
   "contributions_url": "https://ko-fi.com/xiguaxiao",
   "requires_payment": false,
   "homepage": {
-    "en-US": "https://github.com/xiaoxigua-1/X-optimizer",
-    "_default": "en-US"
+    "en-US": "https://github.com/xiaoxigua-1/X-optimizer"
   },
   "support_email": {
-    "en-US": "xigua@xigua.tw",
-    "_default": "en-US"
+    "en-US": "xigua@xigua.tw"
   }
 }

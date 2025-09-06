@@ -33,11 +33,9 @@ jobs:
 
       # Build for Firefox, Chrome and Edge
       - name: Build for Firefox
-        run: npx extension --browser firefox --polyfill
+        run: npx extension build --browser firefox --polyfill
       - name: Build for Chrome
-        run: npx extension --browser chrome --polyfill
-      - name: Build for Edge
-        run: npx extension --browser edge --polyfill
+        run: npx extension build --browser chrome --polyfill
 
       - name: Sign and Publish artifact
         continue-on-error: true

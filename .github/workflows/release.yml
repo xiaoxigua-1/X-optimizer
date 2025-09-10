@@ -31,7 +31,7 @@ jobs:
       - name: Create build directory
         run: mkdir ./builds
 
-      # Build for Firefox, Chrome and Edge
+      # Build for Firefox and Chrome
       - name: Build for Firefox
         run: npx extension build --browser firefox --polyfill
       - name: Build for Chrome
@@ -42,15 +42,7 @@ jobs:
         env:
           FIREFOX_ISSUER: ${{ secrets.FIREFOX_ISSUER }}
           FIREFOX_SECRET: ${{ secrets.FIREFOX_SECRET }}
-        run: npx web-ext sign --channel listed -s ./dist/firefox/ --upload-source-code  ../builds/Source.zip --artifacts-dir ./dist/firefox --api-key $FIREFOX_ISSUER --api-secret $FIREFOX_SECRET --amo-metadata ./firefox-metadata.json
-      - name: Move artifact
-        run: mv ./dist/firefox/x_optimizer-*.xpi ./builds/FirefoxExtension.xpi
-      - name: Upload FirefoxExtension to release
-        uses: Shopify/upload-to-release@07611424e04f1475ddf550e1c0dd650b867d5467
-        with:
-          name: FirefoxExtension.xpi
-          path: ./builds/FirefoxExtension.xpi
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        run: npx web-ext sign --channel listed -s ./dist/firefox/ --upload-source-code  ../builds/Source.zip --artifacts-dir ./dist/firefox --api-key $FIREFOX_ISSUER --api-secret $FIREFOX_SECRET --amo-metadata ./firefox-metadata.json --approval-timeout 0
 
       - name: Zip Chrome Artifacts
         run: cd ./dist/chrome ; zip -r ../../builds/ChromeExtension.zip *

@@ -3,7 +3,7 @@ document.addEventListener("copy", async (e) => {
   const copyText = target?.outerText ?? "";
   const result = await chrome.storage.sync.get(["replaceUrl"]);
 
-  if (copyText.match(/https:\/\/x.com\/./)) {
+  if (copyText.match(/https:\/\/x.com\/./) && result.replaceUrl) {
     await navigator.clipboard.writeText(
       copyText.replace("x.com", result.replaceUrl),
     );

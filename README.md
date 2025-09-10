@@ -5,6 +5,7 @@
 ## Store
 
 - [Chrome store](https://chromewebstore.google.com/detail/x-optimizer/npdpncicgllbfbobialabnmbbkfkdpio)
+- [Firefox for extension](https://addons.mozilla.org/en-US/firefox/addon/x-optimizer/)
 
 ## Available Scripts
 

@@ -47,7 +47,7 @@ jobs:
       - name: Zip Chrome Artifacts
         run: cd ./dist/chrome ; zip -r ../../builds/ChromeExtension.zip *
       - name: Upload ChromeExtension to release
-        uses: Shopify/upload-to-release@v1
+        uses: Shopify/upload-to-release@37d6691606513d27d9510548416bf6389a3bd62b
         with:
           name: ChromeExtension.zip
           path: ./builds/ChromeExtension.zip

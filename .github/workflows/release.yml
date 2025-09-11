@@ -46,13 +46,25 @@ jobs:
 
       - name: Zip Chrome Artifacts
         run: cd ./dist/chrome ; zip -r ../../builds/ChromeExtension.zip *
-      - name: Upload ChromeExtension to release
-        uses: JasonEtco/upload-to-release@master
+
+      - name: Get latest release
+        id: get_release
+        uses: actions/github-script@v7
         with:
-          args: builds/ChromeExtension.zip
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const release = await github.rest.repos.getLatestRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })
+            core.setOutput("tag_name", release.data.tag_name)
+      - name: Upload to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: builds/ChromeExtension.zip
+          asset_name: ChromeExtension.zip
+          tag: ${{ steps.get_release.outputs.tag_name }}
+          overwrite: true
       - name: Publish to Chrome Web Store
         continue-on-error: true
         uses: wdzeng/chrome-extension@v1

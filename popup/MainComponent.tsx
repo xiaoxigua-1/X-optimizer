@@ -26,7 +26,11 @@ export default function MainComponent() {
     (async () => {
       const result = await chrome.storage.sync.get(["replaceUrl"]);
 
-      setReplaceUrl(replaceUrlOptions[await findReplaceUrl(result.replaceUrl)]);
+      setReplaceUrl(
+        result.replaceUrl
+          ? replaceUrlOptions[await findReplaceUrl(result.replaceUrl)]
+          : replaceUrlOptions[0],
+      );
     })();
   }, []);
 

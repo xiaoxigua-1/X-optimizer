@@ -47,11 +47,12 @@ jobs:
       - name: Zip Chrome Artifacts
         run: cd ./dist/chrome ; zip -r ../../builds/ChromeExtension.zip *
       - name: Upload ChromeExtension to release
-        uses: Shopify/upload-to-release@37d6691606513d27d9510548416bf6389a3bd62b
+        uses: JasonEtco/upload-to-release@master
         with:
-          name: ChromeExtension.zip
-          path: ./builds/ChromeExtension.zip
+          args: builds/ChromeExtension.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to Chrome Web Store
         continue-on-error: true
         uses: wdzeng/chrome-extension@v1
